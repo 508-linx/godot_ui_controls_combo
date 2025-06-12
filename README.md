@@ -1,20 +1,17 @@
 # Godot Ui Controls Combo Addons
 
-## What's this addons done?
-Add some preset controls combo for UI
+### What's this addons done?
 
-## Available Controls Combo List
+> Add some preset controls combo for UI
 
-![Status Label](addons/ui_controls_combo/icon/status_label.png)
+### Available Controls Combo List
 
-- Status Label
+> ## ![Status Label](addons/ui_controls_combo/icon/status_label.png) Status Label
+> 
+> - **Label**, **Empty Controls (Expand Fill)**, **Label** inside **HBoxContainer**
+> - Can swap Left-Right position with one-click *(controled by bool value)*
 
-* Label, Empty Controls (Expand Fill), Label inside HBoxContainer
-* can swap left right position with one-click (controled by bool value)
-
-![Icon Label](addons/ui_controls_combo/icon/status_label.png)
-
-- Icon Label
-
-* TextureRect, Empty Controls (Expand Fill), Label inside HBoxContainer
-* can swap left right position with one-click (controled by bool value)
+> ## ![Icon Label](addons/ui_controls_combo/icon/icon_label.png) Icon Label
+> 
+> - **TextureRect**, **Empty Controls (Expand Fill)**, **Label** inside **HBoxContainer**
+> - Can swap Left-Right position with one-click *(controled by bool value)*
