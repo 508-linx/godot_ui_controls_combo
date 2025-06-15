@@ -1,36 +1,29 @@
 @tool
-extends Control
+extends 'res://addons/ui_controls_combo/control_base.gd'
 
-# get real content parent node exclude align node
+@export_category('Setting')
+@export_group('Config')
+@export var auto_update_custom_minimum_size := false;
+
+#
+# size control and initialize
+#
+
+# get real content root node exclude align node
 func __get_root_node() -> Control:
 	if !has_node( 'root' ): return;
 	return get_node( 'root' );
-
-#
-# size mattar
-#
-
-func __get_size( node: Control, exclude_self := false ) -> Vector2i:
-	var temp_size = Vector2i.ZERO if exclude_self else node.get_combined_minimum_size();
-	var counted_offset := Vector2i.ZERO;
-	for child_node in node.get_children():
-		if !child_node.visible: continue;
-		var child_size := __get_size( child_node );
-		temp_size.x = max( temp_size.x, counted_offset.x + child_size.x );
-		temp_size.y = max( temp_size.y, counted_offset.y + child_size.y );
-		if node is HBoxContainer: counted_offset.x += node.get_theme_constant( 'separation' ) + child_size.x;
-		if node is VBoxContainer: counted_offset.y += node.get_theme_constant( 'separation' ) + child_size.y;
-	return temp_size;
 
 func resized_node():
 	var root_node := __get_root_node();
 	if root_node == null: return;
 	
 	root_node.set_anchors_and_offsets_preset( Control.PRESET_FULL_RECT );
-	if get_parent() is BoxContainer: return;
-	if get_parent() is HBoxContainer: return;
-	if get_parent() is VBoxContainer: return;
-	set_size( __get_size( $'.', true ) );
+	__set_size( auto_update_custom_minimum_size );
+
+func _ready():
+	minimum_size_changed.connect( func(): __minimum_size_changed( resized_node ) );
+	resized.connect( resized_node );
 
 #
 # update ( data from export value )
@@ -73,6 +66,8 @@ func update_text( node_list: Array ):
 		var node: Label = root_node.get_node( item[1] );
 		
 		__get_and_apply( node, item[0], 'text' );
+		
+		node.visible = !node.text.is_empty();
 	resized_node();
 
 func update_icon( node_list: Array ):
@@ -83,6 +78,8 @@ func update_icon( node_list: Array ):
 		if item[2] != TextureRect: continue;
 		var data_name: String = item[0];
 		var node: TextureRect = root_node.get_node( item[1] );
+		node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE;
+		node.stretch_mode = TextureRect.STRETCH_SCALE;
 		
 		__get_and_apply_arr( node, [
 			[ data_name + '_valign', 'size_flags_vertical' ],
@@ -96,7 +93,6 @@ func update_icon( node_list: Array ):
 		if icon_size != null and ( icon_size.x == 0 or icon_size.y == 0 ):
 			node.visible = false;
 		var icon_txt = get( data_name + '_txt' );
-		print(icon_txt)
 		if icon_txt == null:
 			node.visible = false;
 	resized_node();

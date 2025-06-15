@@ -7,9 +7,6 @@ const COMBO_LIST := [
 	
 	# Basic Combo
 	
-	[ 'UIcombo_IconLabel', 'Control',
-			preload( PLUGIN_PATH + 'basic_combo/icon_label.gd' ),
-			preload( PLUGIN_PATH + 'icon/icon_label.png' ) ],
 	[ 'UIcombo_StatusLabel', 'Control',
 			preload( PLUGIN_PATH + 'basic_combo/status_label.gd' ),
 			preload( PLUGIN_PATH + 'icon/status_label.png' ) ],
@@ -21,6 +18,9 @@ const COMBO_LIST := [
 	
 	[ 'MENUcombo_Button', 'Control',
 			preload( PLUGIN_PATH + 'menu_combo/button.gd' ),
+			preload( PLUGIN_PATH + 'icon/icon_label.png' ) ],
+	[ 'MENUcombo_Switch', 'Control',
+			preload( PLUGIN_PATH + 'menu_combo/switch.gd' ),
 			preload( PLUGIN_PATH + 'icon/icon_label.png' ) ],
 ]
 

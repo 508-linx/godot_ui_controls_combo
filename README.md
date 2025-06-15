@@ -6,7 +6,7 @@
 
 ### Available Controls Combo
 
-1. Basic Combo
+1. UI Combo
 
 > ## ![Status Label](addons/ui_controls_combo/icon/status_label.png) Status Label
 >
@@ -31,7 +31,7 @@
 > ![Button Preview](addons/ui_controls_combo/preview/button.png)
 > 
 > - Structure: **[ Any BaseButton ]**
-> - Need to PLACE any BaseButton NODE as CHILD, and Assign them to made it work
+> - Need to PLACE any BaseButton NODE as CHILD, and ASSIGN them to made it work
 > - Can use Godot build-in focus system or disable and control by calling func
 
 > ## ![Switch](addons/ui_controls_combo/icon/switch.png) Switch
@@ -39,5 +39,5 @@
 > ![Switch Preview](addons/ui_controls_combo/preview/switch.png)
 > 
 > - Structure: **[ Any BaseButton ]** x 2, **[ CheckButton ]**
-> - Need to PLACE *"any two BaseButton"* or *"CheckButton"* or *both* NODE as CHILD, and Assign them to made it work
+> - Need to PLACE *"any two BaseButton"* or *"CheckButton"* or *both* NODE as CHILD, and ASSIGN them to made it work
 > - Can use Godot build-in focus system or disable and control by calling func
