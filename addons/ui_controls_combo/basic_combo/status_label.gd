@@ -112,3 +112,4 @@ func _ready():
 	create_hboxaligned_node( node_list );
 	minimum_size_changed.connect( resized_node );
 	resized.connect( resized_node );
+	swap_align( node_list, swap_node_align, swap_icon_align );

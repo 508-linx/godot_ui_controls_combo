@@ -14,25 +14,33 @@ enum NODE_IDX { BTN }
 		__update_button();
 
 @export_group('Node')
-@export var node_button: BaseButton:
+@export var node_show_pressed: Array[Node]:
 	set(new_value):
-		node_button = new_value;
-		__check_node( node_button, NODE_IDX.BTN, BaseButton, __click_switch );
+		node_show_pressed = new_value;
+		update_configuration_warnings();
+@export var node_show_released: Array[Node]:
+	set(new_value):
+		node_show_released = new_value;
 		update_configuration_warnings();
 
 func _get_configuration_warnings():
-	if !is_instance_valid( assigned_node[ NODE_IDX.BTN ] ):
-		return ['Please ASSIGN [ node_button ] to make this node WORK'];
+	if node_show_pressed.size() == 0 and node_show_released.size() == 0:
+		return ['Please ASSIGN any node to make this node meaningful'];
 
 func __update_button():
-	var is_toggle_mode := false;
 	if is_instance_valid( assigned_node[ NODE_IDX.BTN ] ):
 		assigned_node[ NODE_IDX.BTN ].button_pressed = combo_button_pressed;
-		is_toggle_mode = assigned_node[ NODE_IDX.BTN ].toggle_mode;
+		for node in node_show_pressed:
+			if !is_instance_valid(node): continue;
+			node.visible = combo_button_pressed;
+		for node in node_show_released:
+			if !is_instance_valid(node): continue;
+			node.visible = !combo_button_pressed;
+		
 	if !block_emit_signal and not Engine.is_editor_hint():
-		if !is_toggle_mode or combo_button_pressed:
+		if combo_button_pressed:
 			combo_signal_button_pressed.emit();
-		if !is_toggle_mode or !combo_button_pressed:
+		else:
 			combo_signal_button_released.emit();
 	return get_instance_id();
 
@@ -53,6 +61,22 @@ func _init():
 	assigned_node.resize( NODE_IDX.size() );
 
 func _ready():
+	var new_btn := Button.new();
+	new_btn.name = 'cover_btn';
+	new_btn.focus_mode = Control.FOCUS_CLICK;
+	new_btn.mouse_filter = Control.MOUSE_FILTER_STOP;
+	new_btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND;
+	new_btn.set_anchors_and_offsets_preset( Control.PRESET_FULL_RECT );
+	var empty_bos := StyleBoxEmpty.new();
+	new_btn.add_theme_stylebox_override( 'focus', empty_bos );
+	new_btn.add_theme_stylebox_override( 'normal', empty_bos );
+	new_btn.add_theme_stylebox_override( 'hover', empty_bos );
+	new_btn.add_theme_stylebox_override( 'pressed', empty_bos );
+	new_btn.toggle_mode = true;
+	new_btn.pressed.connect( __click_switch );
+	add_child( new_btn );
+	assigned_node[ NODE_IDX.BTN ] = new_btn;
+	
 	block_emit_signal = true;
 	__update_button();
 	block_emit_signal = false;

@@ -5,12 +5,15 @@ extends 'res://addons/ui_controls_combo/control_base.gd'
 @export_group('Config')
 @export var auto_update_custom_minimum_size := false;
 
+var saved_root_node: Control;
+
 #
 # size control and initialize
 #
 
 # get real content root node exclude align node
 func __get_root_node() -> Control:
+	if saved_root_node is Control: return saved_root_node;
 	if !has_node( 'root' ): return;
 	return get_node( 'root' );
 
@@ -138,13 +141,14 @@ func swap_align( node_list: Array, invert_align := false, invert_first_align := 
 # create ( node )
 #
 
-func create_hboxaligned_node( node_list: Array ):
+func create_hboxaligned_node( node_list: Array, parent_node := $'.' ):
 	var created_flag := {};
 	
 	var root_node := HBoxContainer.new();
 	root_node.name = 'root';
 	root_node.set_anchors_and_offsets_preset( Control.PRESET_FULL_RECT );
-	add_child( root_node );
+	parent_node.add_child( root_node );
+	saved_root_node = root_node;
 	
 	for item in node_list:
 		var data_name: String = item[0];

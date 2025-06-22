@@ -52,6 +52,7 @@ extends 'res://addons/ui_controls_combo/combo_base.gd'
 	set(new_value):
 		value_cur = new_value;
 		update_text( node_list );
+		update_bar();
 @export var value_sep := '/':
 	set(new_value):
 		value_sep = new_value;
@@ -60,6 +61,7 @@ extends 'res://addons/ui_controls_combo/combo_base.gd'
 	set(new_value):
 		value_max = new_value;
 		update_text( node_list );
+		update_bar();
 @export var value_surfix := ']':
 	set(new_value):
 		value_surfix = new_value;
@@ -119,6 +121,24 @@ var node_list := [
 ];
 
 func _ready():
-	create_hboxaligned_node( node_list );
+	var root_node := VBoxContainer.new();
+	root_node.name = 'root';
+	root_node.set_anchors_and_offsets_preset( Control.PRESET_FULL_RECT );
+	add_child( root_node );
+	
+	create_hboxaligned_node( node_list, get_node('root') );
+	
+	var progress_bar := ProgressBar.new();
+	progress_bar.name = 'progress';
+	progress_bar.show_percentage = false;
+	root_node.add_child( progress_bar );
+	update_bar();
+	
 	minimum_size_changed.connect( resized_node );
 	resized.connect( resized_node );
+
+func update_bar():
+	var node: ProgressBar = get_node('root/progress');
+	if node == null: return;
+	node.value = value_cur.to_float();
+	node.max_value = value_max.to_float();
