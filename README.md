@@ -4,6 +4,10 @@
 
 - Add some preset UI controls combo
 
+### How about Godot 4.4?
+
+- Should be work in 4.4 without conflict, but I will try to add a 4.4 version on release
+
 ## Available Controls Combo
 
 ### 1. Baisc UI Combo
