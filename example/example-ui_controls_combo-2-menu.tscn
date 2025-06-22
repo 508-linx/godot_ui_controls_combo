@@ -1,0 +1,1328 @@
+[gd_scene load_steps=57 format=3 uid="uid://djy1wboquur6k"]
+
+[ext_resource type="Script" path="res://example/example-ui_controls_combo-2-menu_demo_setup.gd" id="1_cwry5"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/menu_combo/button.gd" id="2_6hbbu"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/menu_combo/switch.gd" id="3_ox4lf"]
+[ext_resource type="Texture2D" uid="uid://cat1xddfoflyo" path="res://icon.svg" id="4_tio4l"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/menu_combo/radio_button.gd" id="5_j01e5"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/menu_combo/option_button.gd" id="6_dqoxd"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/menu_combo/slider.gd" id="7_fvp1f"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/menu_combo/node_hider.gd" id="8_olddh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fks8u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l7qed"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubgxe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vaxeo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1m6vd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_re2a3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a2ec"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.466181, 0.466181, 0.466181, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmbmb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vq5n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfx3i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_468yv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7exdw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eo47x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucf8p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d54i3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l08dh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5c1cn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmdbv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ruftr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1y1a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0t65r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6qet"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8gd2j"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3ocx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2scts"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhpfg"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqkq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2kk3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_by75c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_veyig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbaip"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abo6s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k1cxp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axdkh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8wlc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckbw0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08nuf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0jk3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gguot"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6cwb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41gre"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cn6xx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k801i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2rija"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5yir"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ncqvx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hht74"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixbn0"]
+
+[node name="example-ui_controls_combo-2-menu" type="Control" node_paths=PackedStringArray("hider_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cwry5")
+hider_node = NodePath("hider2/MENUcombo_NodeHider2")
+
+[node name="button" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MENUcombo_Button3" type="Control" parent="button" node_paths=PackedStringArray("node_button")]
+custom_minimum_size = Vector2(144, 31)
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("2_6hbbu")
+node_button = NodePath("Button")
+sync_focusing = false
+can_multi_select = true
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="button/MENUcombo_Button3"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fks8u")
+toggle_mode = true
+text = "I'm Toggle Button"
+
+[node name="MENUcombo_Button4" type="Control" parent="button" node_paths=PackedStringArray("node_button")]
+custom_minimum_size = Vector2(152, 31)
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("2_6hbbu")
+node_button = NodePath("Button")
+sync_focusing = false
+can_multi_select = true
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="button/MENUcombo_Button4"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l7qed")
+text = "I'm Normal Button"
+
+[node name="MENUcombo_Button5" type="Control" parent="button" node_paths=PackedStringArray("node_button")]
+custom_minimum_size = Vector2(157, 31)
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("2_6hbbu")
+node_button = NodePath("Button")
+sync_focusing = false
+can_multi_select = true
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="button/MENUcombo_Button5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ubgxe")
+text = "Pressed Event Only"
+
+[node name="MENUcombo_Button7" type="Control" parent="button" node_paths=PackedStringArray("node_button")]
+custom_minimum_size = Vector2(165, 31)
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("2_6hbbu")
+node_button = NodePath("Button")
+sync_focusing = false
+can_multi_select = true
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="button/MENUcombo_Button7"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vaxeo")
+text = "Released Event Only"
+
+[node name="MENUcombo_Button6" type="Control" parent="button"]
+custom_minimum_size = Vector2(151, 31)
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("2_6hbbu")
+sync_focusing = false
+can_multi_select = true
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="button/MENUcombo_Button6"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+tooltip_text = "Will NOT fire connected event because Forgot to Assign :p"
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1m6vd")
+text = "Forgot to Assign :p"
+
+[node name="switch" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -480.0
+offset_bottom = 176.0
+grow_horizontal = 0
+
+[node name="MENUcombo_Switch" type="Control" parent="switch" node_paths=PackedStringArray("node_switch", "node_true_button", "node_false_button")]
+custom_minimum_size = Vector2(432, 31)
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("3_ox4lf")
+node_switch = NodePath("HBoxContainer/CheckButton")
+node_true_button = NodePath("HBoxContainer/Button2")
+node_false_button = NodePath("HBoxContainer/Button")
+auto_update_custom_minimum_size = true
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="switch/MENUcombo_Switch"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="switch/MENUcombo_Switch/HBoxContainer"]
+layout_mode = 2
+text = "Switch w/ solution of left/right problem"
+
+[node name="Button" type="Button" parent="switch/MENUcombo_Switch/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_re2a3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+button_pressed = true
+text = "OFF"
+
+[node name="CheckButton" type="CheckButton" parent="switch/MENUcombo_Switch/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rmbmb")
+
+[node name="Button2" type="Button" parent="switch/MENUcombo_Switch/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8vq5n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+text = "ON"
+
+[node name="MENUcombo_Switch2" type="Control" parent="switch" node_paths=PackedStringArray("node_switch", "node_true_button", "node_false_button")]
+custom_minimum_size = Vector2(442, 31)
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("3_ox4lf")
+node_switch = NodePath("HBoxContainer/CheckButton")
+node_true_button = NodePath("HBoxContainer/Button2")
+node_false_button = NodePath("HBoxContainer/Button")
+auto_update_custom_minimum_size = true
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="switch/MENUcombo_Switch2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="switch/MENUcombo_Switch2/HBoxContainer"]
+layout_mode = 2
+text = "Switch w/o solution of left/right problem"
+
+[node name="Button" type="Button" parent="switch/MENUcombo_Switch2/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pfx3i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+button_pressed = true
+text = "OFF"
+
+[node name="CheckButton" type="CheckButton" parent="switch/MENUcombo_Switch2/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_468yv")
+
+[node name="Button2" type="Button" parent="switch/MENUcombo_Switch2/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7exdw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+text = "ON"
+
+[node name="MENUcombo_Switch3" type="Control" parent="switch" node_paths=PackedStringArray("node_true_button", "node_false_button")]
+custom_minimum_size = Vector2(297, 31)
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("3_ox4lf")
+node_true_button = NodePath("HBoxContainer/Button2")
+node_false_button = NodePath("HBoxContainer/Button")
+auto_update_custom_minimum_size = true
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="switch/MENUcombo_Switch3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="switch/MENUcombo_Switch3/HBoxContainer"]
+layout_mode = 2
+text = "Switch with only two button"
+
+[node name="Button" type="Button" parent="switch/MENUcombo_Switch3/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eo47x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+button_pressed = true
+text = "OFF"
+
+[node name="Button2" type="Button" parent="switch/MENUcombo_Switch3/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucf8p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+text = "ON"
+
+[node name="MENUcombo_Switch4" type="Control" parent="switch" node_paths=PackedStringArray("node_switch")]
+custom_minimum_size = Vector2(225, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("3_ox4lf")
+node_switch = NodePath("HBoxContainer/CheckButton")
+auto_update_custom_minimum_size = true
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="switch/MENUcombo_Switch4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="switch/MENUcombo_Switch4/HBoxContainer"]
+layout_mode = 2
+text = "Switch w/o side button"
+
+[node name="CheckButton" type="CheckButton" parent="switch/MENUcombo_Switch4/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d54i3")
+
+[node name="MENUcombo_Switch5" type="Control" parent="switch" node_paths=PackedStringArray("node_switch", "node_true_button", "node_false_button")]
+custom_minimum_size = Vector2(382, 31)
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("3_ox4lf")
+node_switch = NodePath("HBoxContainer/CheckButton")
+node_true_button = NodePath("HBoxContainer/Button2")
+node_false_button = NodePath("HBoxContainer/Button")
+auto_update_custom_minimum_size = true
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="switch/MENUcombo_Switch5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="switch/MENUcombo_Switch5/HBoxContainer"]
+layout_mode = 2
+text = "Switch w/ non-toggle side button"
+
+[node name="Button" type="Button" parent="switch/MENUcombo_Switch5/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l08dh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+text = "OFF"
+
+[node name="CheckButton" type="CheckButton" parent="switch/MENUcombo_Switch5/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5c1cn")
+
+[node name="Button2" type="Button" parent="switch/MENUcombo_Switch5/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmdbv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+text = "ON"
+
+[node name="MENUcombo_Switch6" type="Control" parent="switch" node_paths=PackedStringArray("node_true_button", "node_false_button")]
+custom_minimum_size = Vector2(297, 31)
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("3_ox4lf")
+node_true_button = NodePath("HBoxContainer/Button2")
+node_false_button = NodePath("HBoxContainer/Button")
+auto_update_custom_minimum_size = true
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="switch/MENUcombo_Switch6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="switch/MENUcombo_Switch6/HBoxContainer"]
+layout_mode = 2
+text = "Switch with only two button"
+
+[node name="Button" type="Button" parent="switch/MENUcombo_Switch6/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ruftr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+button_pressed = true
+text = "OFF"
+
+[node name="Button2" type="Button" parent="switch/MENUcombo_Switch6/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r1y1a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+text = "ON"
+
+[node name="MENUcombo_Button3" type="Control" parent="." node_paths=PackedStringArray("node_button")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 232.0
+offset_top = 54.0
+offset_right = 397.0
+offset_bottom = 85.0
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("2_6hbbu")
+node_button = NodePath("Button")
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="MENUcombo_Button3"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t65r")
+text = "Independent Button"
+
+[node name="MENUcombo_Button2" type="Control" parent="." node_paths=PackedStringArray("node_button")]
+anchors_preset = 0
+offset_left = 247.0
+offset_top = 128.0
+offset_right = 416.0
+offset_bottom = 172.0
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("2_6hbbu")
+node_button = NodePath("MarginContainer/HBoxContainer/Button")
+selection_margin = Vector4i(6, 4, 6, 4)
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MENUcombo_Button2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MENUcombo_Button2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="MENUcombo_Button2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_tio4l")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="MENUcombo_Button2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i6qet")
+text = "Styled Button"
+
+[node name="MENUcombo_Button" type="Control" parent="." node_paths=PackedStringArray("node_button")]
+anchors_preset = 0
+offset_left = 214.0
+offset_top = 13.0
+offset_right = 396.0
+offset_bottom = 45.0
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("2_6hbbu")
+node_button = NodePath("HBoxContainer/TextureButton")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MENUcombo_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="MENUcombo_Button/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_tio4l")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MENUcombo_Button/HBoxContainer"]
+layout_mode = 2
+text = "I'm Texture Button"
+
+[node name="MENUcombo_RadioButton3" type="Control" parent="." node_paths=PackedStringArray("node_button")]
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 184.0
+offset_right = 348.0
+offset_bottom = 452.0
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("5_j01e5")
+allow_vertical_control = true
+allow_horizontal_control = false
+node_button = [NodePath("HBoxContainer/VBoxContainer/TextureButton"), NodePath("HBoxContainer/VBoxContainer/TextureButton2"), NodePath("HBoxContainer/VBoxContainer/TextureButton3"), NodePath("HBoxContainer/VBoxContainer/TextureButton4")]
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MENUcombo_RadioButton3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MENUcombo_RadioButton3/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MENUcombo_RadioButton3/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("ViewportTexture_8gd2j")
+texture_pressed = ExtResource("4_tio4l")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="MENUcombo_RadioButton3/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = SubResource("ViewportTexture_8gd2j")
+texture_pressed = ExtResource("4_tio4l")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="MENUcombo_RadioButton3/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = SubResource("ViewportTexture_8gd2j")
+texture_pressed = ExtResource("4_tio4l")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="MENUcombo_RadioButton3/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = SubResource("ViewportTexture_8gd2j")
+texture_pressed = ExtResource("4_tio4l")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MENUcombo_RadioButton3/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "vertical radio via TextureButton"
+
+[node name="MENUcombo_RadioButton" type="Control" parent="." node_paths=PackedStringArray("node_button")]
+anchors_preset = 0
+offset_left = 130.0
+offset_top = 254.0
+offset_right = 433.0
+offset_bottom = 277.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("5_j01e5")
+loop_selection = true
+node_button = [NodePath("HBoxContainer/Button"), NodePath("HBoxContainer/Button2"), NodePath("HBoxContainer/Button3"), NodePath("HBoxContainer/Button4"), NodePath("HBoxContainer/Button5")]
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MENUcombo_RadioButton"]
+layout_mode = 0
+offset_right = 303.0
+offset_bottom = 23.0
+
+[node name="Button" type="Button" parent="MENUcombo_RadioButton/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r3ocx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+button_pressed = true
+text = "1"
+
+[node name="Button2" type="Button" parent="MENUcombo_RadioButton/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tqkq8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+text = "2"
+
+[node name="Button3" type="Button" parent="MENUcombo_RadioButton/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v2kk3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+text = "3"
+
+[node name="Button4" type="Button" parent="MENUcombo_RadioButton/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_by75c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+text = "4"
+
+[node name="Button5" type="Button" parent="MENUcombo_RadioButton/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_veyig")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+text = "5"
+
+[node name="Label" type="Label" parent="MENUcombo_RadioButton/HBoxContainer"]
+layout_mode = 2
+text = "radio button w/ loop selection"
+
+[node name="MENUcombo_RadioButton2" type="Control" parent="." node_paths=PackedStringArray("node_button")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 129.0
+offset_top = 306.0
+offset_right = 442.0
+offset_bottom = 329.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("5_j01e5")
+node_button = [NodePath("HBoxContainer/Button"), NodePath("HBoxContainer/Button2"), NodePath("HBoxContainer/Button3"), NodePath("HBoxContainer/Button4"), NodePath("HBoxContainer/Button5")]
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MENUcombo_RadioButton2"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="MENUcombo_RadioButton2/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sbaip")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+button_pressed = true
+text = "1"
+
+[node name="Button2" type="Button" parent="MENUcombo_RadioButton2/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_abo6s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+text = "2"
+
+[node name="Button3" type="Button" parent="MENUcombo_RadioButton2/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k1cxp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+text = "3"
+
+[node name="Button4" type="Button" parent="MENUcombo_RadioButton2/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_axdkh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+text = "4"
+
+[node name="Button5" type="Button" parent="MENUcombo_RadioButton2/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b8wlc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2scts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhpfg")
+toggle_mode = true
+text = "5"
+
+[node name="Label" type="Label" parent="MENUcombo_RadioButton2/HBoxContainer"]
+layout_mode = 2
+text = "radio button w/o loop selection"
+
+[node name="MENUcombo_OptionButton" type="Control" parent="." node_paths=PackedStringArray("node_button")]
+anchors_preset = 0
+offset_left = 534.0
+offset_top = 45.0
+offset_right = 576.0
+offset_bottom = 76.0
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("6_dqoxd")
+node_button = NodePath("OptionButton")
+metadata/_edit_group_ = true
+
+[node name="OptionButton" type="OptionButton" parent="MENUcombo_OptionButton"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+focus_mode = 1
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "a"
+popup/item_1/text = "b"
+popup/item_1/id = 1
+popup/item_2/text = "c"
+popup/item_2/id = 2
+
+[node name="slider" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="MENUcombo_Slider" type="Control" parent="slider" node_paths=PackedStringArray("node_slider", "node_step_down_button", "node_step_up_button", "node_value_label")]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("7_fvp1f")
+display_digi_after_decimal = 2
+node_slider = NodePath("HBoxContainer/HSlider")
+node_step_down_button = NodePath("HBoxContainer/Button")
+node_step_up_button = NodePath("HBoxContainer/Button2")
+node_value_label = NodePath("HBoxContainer/Label")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="slider/MENUcombo_Slider"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 31.0
+
+[node name="Label2" type="Label" parent="slider/MENUcombo_Slider/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Round + .2f"
+
+[node name="Button" type="Button" parent="slider/MENUcombo_Slider/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ckbw0")
+text = "<"
+
+[node name="HSlider" type="HSlider" parent="slider/MENUcombo_Slider/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 1
+mouse_default_cursor_shape = 2
+step = 0.001
+
+[node name="Button2" type="Button" parent="slider/MENUcombo_Slider/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_08nuf")
+text = ">"
+
+[node name="Label" type="Label" parent="slider/MENUcombo_Slider/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "0.00"
+horizontal_alignment = 2
+
+[node name="MENUcombo_Slider2" type="Control" parent="slider" node_paths=PackedStringArray("node_slider", "node_step_down_button", "node_step_up_button", "node_value_label")]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("7_fvp1f")
+round_value = false
+display_digi_after_decimal = 2
+node_slider = NodePath("HBoxContainer2/HSlider")
+node_step_down_button = NodePath("HBoxContainer2/Button")
+node_step_up_button = NodePath("HBoxContainer2/Button2")
+node_value_label = NodePath("HBoxContainer2/Label")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="slider/MENUcombo_Slider2"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 31.0
+
+[node name="Label2" type="Label" parent="slider/MENUcombo_Slider2/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Floor + .2f"
+
+[node name="Button" type="Button" parent="slider/MENUcombo_Slider2/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h0jk3")
+text = "<"
+
+[node name="HSlider" type="HSlider" parent="slider/MENUcombo_Slider2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 1
+mouse_default_cursor_shape = 2
+step = 0.001
+
+[node name="Button2" type="Button" parent="slider/MENUcombo_Slider2/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gguot")
+text = ">"
+
+[node name="Label" type="Label" parent="slider/MENUcombo_Slider2/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "0.00"
+horizontal_alignment = 2
+
+[node name="MENUcombo_Slider3" type="Control" parent="slider" node_paths=PackedStringArray("node_slider", "node_step_down_button", "node_step_up_button", "node_value_label")]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("7_fvp1f")
+round_value = false
+node_slider = NodePath("HBoxContainer2/HSlider")
+node_step_down_button = NodePath("HBoxContainer2/Button")
+node_step_up_button = NodePath("HBoxContainer2/Button2")
+node_value_label = NodePath("HBoxContainer2/Label")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="slider/MENUcombo_Slider3"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 31.0
+
+[node name="Label2" type="Label" parent="slider/MENUcombo_Slider3/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Floor + int"
+
+[node name="Button" type="Button" parent="slider/MENUcombo_Slider3/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v6cwb")
+text = "<"
+
+[node name="HSlider" type="HSlider" parent="slider/MENUcombo_Slider3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 1
+mouse_default_cursor_shape = 2
+step = 0.1
+
+[node name="Button2" type="Button" parent="slider/MENUcombo_Slider3/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_41gre")
+text = ">"
+
+[node name="Label" type="Label" parent="slider/MENUcombo_Slider3/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="MENUcombo_Slider4" type="Control" parent="slider" node_paths=PackedStringArray("node_slider", "node_step_down_button", "node_step_up_button", "node_value_label")]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("7_fvp1f")
+node_slider = NodePath("HBoxContainer2/HSlider")
+node_step_down_button = NodePath("HBoxContainer2/Button")
+node_step_up_button = NodePath("HBoxContainer2/Button2")
+node_value_label = NodePath("HBoxContainer2/Label")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="slider/MENUcombo_Slider4"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 31.0
+
+[node name="Label2" type="Label" parent="slider/MENUcombo_Slider4/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Round + int"
+
+[node name="Button" type="Button" parent="slider/MENUcombo_Slider4/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cn6xx")
+text = "<"
+
+[node name="HSlider" type="HSlider" parent="slider/MENUcombo_Slider4/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 1
+mouse_default_cursor_shape = 2
+step = 0.01
+
+[node name="Button2" type="Button" parent="slider/MENUcombo_Slider4/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k801i")
+text = ">"
+
+[node name="Label" type="Label" parent="slider/MENUcombo_Slider4/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="MENUcombo_Slider5" type="Control" parent="slider" node_paths=PackedStringArray("node_slider", "node_step_down_button", "node_step_up_button")]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("7_fvp1f")
+node_slider = NodePath("HBoxContainer2/HSlider")
+node_step_down_button = NodePath("HBoxContainer2/Button")
+node_step_up_button = NodePath("HBoxContainer2/Button2")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="slider/MENUcombo_Slider5"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 31.0
+
+[node name="Label2" type="Label" parent="slider/MENUcombo_Slider5/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "No Label"
+
+[node name="Button" type="Button" parent="slider/MENUcombo_Slider5/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2rija")
+text = "<"
+
+[node name="HSlider" type="HSlider" parent="slider/MENUcombo_Slider5/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 1
+mouse_default_cursor_shape = 2
+step = 0.01
+
+[node name="Button2" type="Button" parent="slider/MENUcombo_Slider5/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o5yir")
+text = ">"
+
+[node name="Label" type="Label" parent="slider/MENUcombo_Slider5/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = ":]"
+horizontal_alignment = 2
+
+[node name="hider2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="MENUcombo_NodeHider2" type="Control" parent="hider2" node_paths=PackedStringArray("node_show_released")]
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("8_olddh")
+node_show_released = [NodePath("../../button"), NodePath("../../switch"), NodePath("../../MENUcombo_Button3"), NodePath("../../MENUcombo_Button2"), NodePath("../../MENUcombo_Button"), NodePath("../../MENUcombo_RadioButton3"), NodePath("../../MENUcombo_RadioButton"), NodePath("../../MENUcombo_RadioButton2"), NodePath("../../MENUcombo_OptionButton"), NodePath("../../slider")]
+
+[node name="Panel" type="Panel" parent="hider2"]
+layout_mode = 2
+
+[node name="hider" type="VBoxContainer" parent="hider2"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="hider2/hider"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="MENUcombo_NodeHider" type="Control" parent="hider2/hider" node_paths=PackedStringArray("node_show_pressed", "node_show_released")]
+custom_minimum_size = Vector2(320, 32)
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("8_olddh")
+node_show_pressed = [NodePath("HBoxContainer/Label2"), NodePath("HBoxContainer/TextureRect"), NodePath("../Label"), NodePath("../HSeparator"), NodePath("../MENUcombo_Switch")]
+node_show_released = [NodePath("HBoxContainer/Label"), NodePath("HBoxContainer/HSeparator")]
+
+[node name="Panel" type="Panel" parent="hider2/hider/MENUcombo_NodeHider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hider2/hider/MENUcombo_NodeHider"]
+custom_minimum_size = Vector2(320, 32)
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 32.0
+
+[node name="Label" type="Label" parent="hider2/hider/MENUcombo_NodeHider/HBoxContainer"]
+layout_mode = 2
+text = "Click to OPEN"
+
+[node name="Label2" type="Label" parent="hider2/hider/MENUcombo_NodeHider/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Click to CLOSE"
+
+[node name="HSeparator" type="HSeparator" parent="hider2/hider/MENUcombo_NodeHider/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="TextureRect" type="TextureRect" parent="hider2/hider/MENUcombo_NodeHider/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("4_tio4l")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="hider2/hider"]
+visible = false
+layout_mode = 2
+text = "I'm Content"
+horizontal_alignment = 1
+
+[node name="MENUcombo_Switch" type="Control" parent="hider2/hider" node_paths=PackedStringArray("node_switch", "node_true_button", "node_false_button")]
+visible = false
+custom_minimum_size = Vector2(221, 31)
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("3_ox4lf")
+node_switch = NodePath("HBoxContainer/CheckButton")
+node_true_button = NodePath("HBoxContainer/Button2")
+node_false_button = NodePath("HBoxContainer/Button")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hider2/hider/MENUcombo_Switch"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="hider2/hider/MENUcombo_Switch/HBoxContainer"]
+layout_mode = 2
+text = "You find me"
+
+[node name="Button" type="Button" parent="hider2/hider/MENUcombo_Switch/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ncqvx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+button_pressed = true
+text = "OFF"
+
+[node name="CheckButton" type="CheckButton" parent="hider2/hider/MENUcombo_Switch/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hht74")
+
+[node name="Button2" type="Button" parent="hider2/hider/MENUcombo_Switch/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ixbn0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a2ec")
+toggle_mode = true
+text = "ON"
+
+[node name="HSeparator" type="HSeparator" parent="hider2/hider"]
+visible = false
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(128, 128)
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport"]
+modulate = Color(0.35, 0.35, 0.35, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_tio4l")
+
+[connection signal="combo_signal_button_pressed" from="button/MENUcombo_Button3" to="." method="_on_men_ucombo_button_3_combo_signal_button_pressed"]
+[connection signal="combo_signal_button_released" from="button/MENUcombo_Button3" to="." method="_on_men_ucombo_button_3_combo_signal_button_released"]
+[connection signal="combo_signal_button_pressed" from="button/MENUcombo_Button4" to="." method="_on_men_ucombo_button_4_combo_signal_button_pressed"]
+[connection signal="combo_signal_button_released" from="button/MENUcombo_Button4" to="." method="_on_men_ucombo_button_4_combo_signal_button_released"]
+[connection signal="combo_signal_button_pressed" from="button/MENUcombo_Button5" to="." method="_on_men_ucombo_button_5_combo_signal_button_pressed"]
+[connection signal="combo_signal_button_released" from="button/MENUcombo_Button7" to="." method="_on_men_ucombo_button_7_combo_signal_button_released"]
+[connection signal="combo_signal_button_pressed" from="button/MENUcombo_Button6" to="." method="_on_men_ucombo_button_6_combo_signal_button_pressed"]
+[connection signal="combo_signal_button_pressed" from="switch/MENUcombo_Switch" to="." method="_on_men_ucombo_switch_combo_signal_button_pressed"]
+[connection signal="combo_signal_button_pressed" from="MENUcombo_Button" to="." method="_on_men_ucombo_button_combo_signal_button_pressed"]
+[connection signal="combo_signal_radio_changed" from="MENUcombo_RadioButton3" to="." method="_on_men_ucombo_radio_button_3_combo_signal_radio_changed"]
+[connection signal="combo_signal_radio_changed" from="MENUcombo_RadioButton" to="." method="_on_men_ucombo_radio_button_3_combo_signal_radio_changed"]
+[connection signal="combo_signal_radio_changed" from="MENUcombo_RadioButton2" to="." method="_on_men_ucombo_radio_button_3_combo_signal_radio_changed"]
+[connection signal="combo_signal_option_changed" from="MENUcombo_OptionButton" to="." method="_on_men_ucombo_option_button_combo_signal_option_changed"]
+[connection signal="combo_signal_value_changed" from="slider/MENUcombo_Slider" to="." method="_on_men_ucombo_slider_combo_signal_value_changed"]
+[connection signal="combo_signal_value_changed" from="slider/MENUcombo_Slider2" to="." method="_on_men_ucombo_slider_combo_signal_value_changed"]
+[connection signal="combo_signal_value_changed" from="slider/MENUcombo_Slider3" to="." method="_on_men_ucombo_slider_combo_signal_value_changed"]
+[connection signal="combo_signal_value_changed" from="slider/MENUcombo_Slider4" to="." method="_on_men_ucombo_slider_combo_signal_value_changed"]
+[connection signal="combo_signal_value_changed" from="slider/MENUcombo_Slider5" to="." method="_on_men_ucombo_slider_combo_signal_value_changed"]
+[connection signal="combo_signal_switch_changed" from="hider2/hider/MENUcombo_Switch" to="." method="_on_men_ucombo_switch_combo_signal_switch_changed"]

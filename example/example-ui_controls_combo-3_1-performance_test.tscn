@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://doxpn4p4cjkn7"]
+
+[ext_resource type="Script" path="res://example/example_ui_controls_combo_3_1_performance_test_count.gd" id="1_i11g4"]
+[ext_resource type="Script" path="res://example/example-ui_controls_combo-3_1-copyunit.gd" id="2_jukkm"]
+[ext_resource type="Texture2D" uid="uid://cat1xddfoflyo" path="res://icon.svg" id="3_m073c"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/non_combo/resource_indicator.gd" id="4_cmfje"]
+
+[sub_resource type="SystemFont" id="SystemFont_gd58b"]
+subpixel_positioning = 0
+
+[node name="example-ui_controls_combo-3_1-performance_test" type="Node2D"]
+script = ExtResource("1_i11g4")
+
+[node name="danger_self_copy_unit" type="Node2D" parent="."]
+position = Vector2(-90, -136)
+script = ExtResource("2_jukkm")
+
+[node name="Sprite2D" type="Sprite2D" parent="danger_self_copy_unit"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_m073c")
+
+[node name="NONcombo_ResourceIndicator" type="Node2D" parent="danger_self_copy_unit"]
+script = ExtResource("4_cmfje")
+display_value = Array[Vector2]([Vector2(17.845, 100), Vector2(145.43, 200)])
+display_color = Array[Color]([Color(0.890818, 0.494589, 0.365279, 1), Color(0.404147, 0.795059, 0.94552, 1)])
+draw_offset = Vector2(0, -24)
+value_font = SubResource("SystemFont_gd58b")
+value_size = 8.0

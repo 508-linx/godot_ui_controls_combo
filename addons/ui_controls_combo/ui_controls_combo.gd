@@ -12,16 +12,35 @@ const COMBO_LIST := [
 			preload( PLUGIN_PATH + 'icon/status_label.png' ) ],
 	[ 'UIcombo_ResourceLabel', 'Control',
 			preload( PLUGIN_PATH + 'basic_combo/resource_label.gd' ),
-			preload( PLUGIN_PATH + 'icon/status_label.png' ) ],
+			preload( PLUGIN_PATH + 'icon/resource_label.png' ) ],
 	
 	# Menu Combo
 	
 	[ 'MENUcombo_Button', 'Control',
 			preload( PLUGIN_PATH + 'menu_combo/button.gd' ),
-			preload( PLUGIN_PATH + 'icon/icon_label.png' ) ],
+			preload( PLUGIN_PATH + 'icon/button.png' ) ],
+	[ 'MENUcombo_OptionButton', 'Control',
+			preload( PLUGIN_PATH + 'menu_combo/option_button.gd' ),
+			preload( PLUGIN_PATH + 'icon/option_button.png' ) ],
 	[ 'MENUcombo_Switch', 'Control',
 			preload( PLUGIN_PATH + 'menu_combo/switch.gd' ),
-			preload( PLUGIN_PATH + 'icon/icon_label.png' ) ],
+			preload( PLUGIN_PATH + 'icon/switch.png' ) ],
+	[ 'MENUcombo_RadioButton', 'Control',
+			preload( PLUGIN_PATH + 'menu_combo/radio_button.gd' ),
+			preload( PLUGIN_PATH + 'icon/radio_button.png' ) ],
+	[ 'MENUcombo_Slider', 'Control',
+			preload( PLUGIN_PATH + 'menu_combo/slider.gd' ),
+			preload( PLUGIN_PATH + 'icon/slider.png' ) ],
+	[ 'MENUcombo_NodeHider', 'Control',
+			preload( PLUGIN_PATH + 'menu_combo/node_hider.gd' ),
+			preload( PLUGIN_PATH + 'icon/node_hider.png' ) ],
+	
+	# Non Combo
+	
+	[ 'NONcombo_ResourceIndicator', 'Node2D',
+			preload( PLUGIN_PATH + 'non_combo/resource_indicator.gd' ),
+			preload( PLUGIN_PATH + 'icon/resource_indicator.png' ) ],
+	
 ]
 
 #func _enable_plugin():

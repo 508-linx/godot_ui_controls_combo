@@ -43,6 +43,7 @@ func __get_size( node: Control, exclude_self := false ) -> Vector2i:
 ## the callable_func must return get_instance_id(), or this check fail
 func __connect_func_to_signal( signal_to_connect: Signal, callable_func: Callable ) -> bool:
 	for connection in signal_to_connect.get_connections():
+		if !is_instance_valid( connection.callable ): continue;
 		if connection.callable == callable_func and connection.callable.call() == get_instance_id():
 			return false;
 	signal_to_connect.connect( callable_func );
@@ -51,7 +52,7 @@ func __connect_func_to_signal( signal_to_connect: Signal, callable_func: Callabl
 func __release_connected_signal( signal_to_release: Signal ) -> bool:
 	var any_released := false;
 	for connection in signal_to_release.get_connections():
-		if connection.callable.call() == get_instance_id():
+		if !is_instance_valid( connection.callable ) or connection.callable.call() == get_instance_id():
 			signal_to_release.disconnect( connection.callable );
 			any_released = true;
 	return any_released;

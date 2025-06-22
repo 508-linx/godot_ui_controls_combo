@@ -210,33 +210,52 @@ func set_node_modulate( node: Control, timer: float, normal_color: Color, target
 
 var assigned_node := [];
 
-func __release_button_connected_signal( node: BaseButton ):
-	block_emit_signal = true;
-	__release_connected_signal( node.pressed );
-	block_emit_signal = false;
-
-func __check_node( new_node: Control, node_idx: int, target_class, interact_func: Callable ):
+func __check_node( new_node: Control, node_idx: int, target_class, interact_func = null ):
 	if is_instance_valid( new_node ):
-		
-		if target_class == BaseButton:
+		block_emit_signal = true;
+		if target_class == BaseButton or target_class == OptionButton:
 			if assigned_node[ node_idx ] != null and assigned_node[ node_idx ] != new_node:
-				__release_button_connected_signal( assigned_node[ node_idx ] );
+				__release_connected_signal( assigned_node[ node_idx ].pressed );
 			if auto_remove_focus_style:
 				new_node.add_theme_stylebox_override( 'focus', StyleBoxEmpty.new() );
 			if auto_change_mouse_cursor:
 				new_node.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND;
+		elif target_class == Slider:
+			if assigned_node[ node_idx ] != null and assigned_node[ node_idx ] != new_node:
+				__release_connected_signal( assigned_node[ node_idx ].value_changed );
+			if auto_remove_focus_style:
+				new_node.add_theme_stylebox_override( 'focus', StyleBoxEmpty.new() );
+			if auto_change_mouse_cursor:
+				new_node.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND;
+		elif target_class == Label:
+			new_node.focus_mode = Control.FOCUS_NONE;
+			new_node.mouse_filter = Control.MOUSE_FILTER_IGNORE;
+			if auto_change_mouse_cursor:
+				new_node.mouse_default_cursor_shape = Control.CURSOR_ARROW;
+		block_emit_signal = false;
 		
+		var target_signal: Signal;
+		if target_class == OptionButton:
+			target_signal = new_node.item_selected;
+		elif target_class == BaseButton:
+			target_signal = new_node.pressed;
+		elif target_class == Slider:
+			target_signal = new_node.value_changed;
+		
+		if target_signal != null and interact_func is Callable:
 			block_emit_signal = true;
-			__connect_func_to_signal( new_node.pressed, func():
+			__connect_func_to_signal( target_signal, func( fake = null ):
 					new_node.release_focus();
 					grab_combo_focus();
 					return interact_func.call() );
 			block_emit_signal = false;
-		
 		assigned_node[ node_idx ] = new_node;
 		
 	elif assigned_node[ node_idx ] != null:
-		__release_button_connected_signal( assigned_node[ node_idx ] );
+		if assigned_node[ node_idx ] is BaseButton:
+			__release_connected_signal( assigned_node[ node_idx ].pressed );
+		elif assigned_node[ node_idx ] is Slider:
+			__release_connected_signal( assigned_node[ node_idx ].value_changed );
 		assigned_node[ node_idx ] = null;
 
 #

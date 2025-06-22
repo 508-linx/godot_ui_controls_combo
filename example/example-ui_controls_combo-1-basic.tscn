@@ -1,0 +1,182 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctqd46jesfcd1"]
+
+[ext_resource type="Script" path="res://addons/ui_controls_combo/basic_combo/status_label.gd" id="1_5m7ji"]
+[ext_resource type="Texture2D" uid="uid://cat1xddfoflyo" path="res://icon.svg" id="2_ahl70"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/basic_combo/resource_label.gd" id="3_tumrs"]
+
+[node name="example-ui_controls_combo-1-basic" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 0
+offset_left = 201.0
+offset_top = 39.0
+offset_right = 241.0
+offset_bottom = 79.0
+
+[node name="UIcombo_StatusLabel" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+script = ExtResource("1_5m7ji")
+icon_txt = ExtResource("2_ahl70")
+icon_size = Vector2(18, 18)
+title = ""
+title_size = 12
+value_size = 12
+value_valign = 1
+
+[node name="UIcombo_StatusLabel2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+script = ExtResource("1_5m7ji")
+icon_txt = ExtResource("2_ahl70")
+icon_size = Vector2(18, 18)
+title = ""
+title_size = 12
+value_size = 12
+value_valign = 1
+
+[node name="UIcombo_StatusLabel3" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+script = ExtResource("1_5m7ji")
+icon_txt = ExtResource("2_ahl70")
+icon_size = Vector2(18, 18)
+title = ""
+title_size = 12
+value_size = 12
+value_valign = 1
+
+[node name="UIcombo_ResourceLabel" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 47.0
+offset_top = 154.0
+offset_right = 252.0
+offset_bottom = 177.0
+script = ExtResource("3_tumrs")
+icon_txt = ExtResource("2_ahl70")
+
+[node name="UIcombo_ResourceLabel2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 67.0
+offset_top = 177.0
+offset_right = 252.0
+offset_bottom = 200.0
+script = ExtResource("3_tumrs")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -394.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "with fixed size"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="UIcombo_StatusLabel2" type="Control" parent="VBoxContainer2/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 18)
+layout_mode = 2
+script = ExtResource("1_5m7ji")
+icon_txt = ExtResource("2_ahl70")
+icon_size = Vector2(18, 18)
+title = ""
+value = "10"
+title_size = 12
+value_size = 12
+value_valign = 1
+
+[node name="UIcombo_StatusLabel3" type="Control" parent="VBoxContainer2/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 18)
+layout_mode = 2
+script = ExtResource("1_5m7ji")
+icon_txt = ExtResource("2_ahl70")
+icon_size = Vector2(18, 18)
+title = ""
+value = "5"
+title_size = 12
+value_size = 12
+value_valign = 1
+
+[node name="UIcombo_StatusLabel4" type="Control" parent="VBoxContainer2/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 18)
+layout_mode = 2
+script = ExtResource("1_5m7ji")
+icon_txt = ExtResource("2_ahl70")
+icon_size = Vector2(18, 18)
+title = ""
+value = "1200"
+title_size = 12
+value_size = 12
+value_valign = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+text = "with dynmic size"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="UIcombo_StatusLabel2" type="Control" parent="VBoxContainer2/HBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(56, 18)
+layout_mode = 2
+script = ExtResource("1_5m7ji")
+icon_txt = ExtResource("2_ahl70")
+icon_size = Vector2(18, 18)
+title = ""
+value = "10"
+title_size = 12
+value_size = 12
+value_valign = 1
+auto_update_custom_minimum_size = true
+
+[node name="UIcombo_StatusLabel3" type="Control" parent="VBoxContainer2/HBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(49, 18)
+layout_mode = 2
+script = ExtResource("1_5m7ji")
+icon_txt = ExtResource("2_ahl70")
+icon_size = Vector2(18, 18)
+title = ""
+value = "5"
+title_size = 12
+value_size = 12
+value_valign = 1
+auto_update_custom_minimum_size = true
+
+[node name="UIcombo_StatusLabel4" type="Control" parent="VBoxContainer2/HBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(70, 18)
+layout_mode = 2
+script = ExtResource("1_5m7ji")
+icon_txt = ExtResource("2_ahl70")
+icon_size = Vector2(18, 18)
+title = ""
+value = "1200"
+title_size = 12
+value_size = 12
+value_valign = 1
+auto_update_custom_minimum_size = true
