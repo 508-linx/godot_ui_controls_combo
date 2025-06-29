@@ -1,5 +1,5 @@
 @tool
-extends 'res://addons/ui_controls_combo/menu_base.gd'
+class_name Editor_UiControlsCombo_Menu_NodeHider extends Editor_UiControlsCombo_Menu
 
 signal combo_signal_button_pressed;
 signal combo_signal_button_released;
@@ -48,10 +48,20 @@ func __click_switch():
 	if is_instance_valid( assigned_node[ NODE_IDX.BTN ] ):
 		combo_button_pressed = assigned_node[ NODE_IDX.BTN ].button_pressed;
 
-func press_button():
-	if is_instance_valid( assigned_node[ NODE_IDX.BTN ] ):
-		assigned_node[ NODE_IDX.BTN ].button_pressed = !assigned_node[ NODE_IDX.BTN ].button_pressed;
-		__update_button();
+func __change_button_state( to_state = null ):
+	if !__is_editable(): return;
+	if to_state is bool:
+		combo_button_pressed = to_state;
+	else:
+		combo_button_pressed = !combo_button_pressed;
+
+## set combo_button_pressed to invert assigned node_button property button_pressed, than update combo
+## nothing occur while haven't Node assigned
+func click_button():	__change_button_state();
+## change combo_button_pressed to true than update combo
+func press_button():	__change_button_state( true );
+## change combo_button_pressed to false than update combo
+func release_button():	__change_button_state( false );
 
 #
 # engine call relate
@@ -84,7 +94,7 @@ func _ready():
 
 func _input(event):
 	if !use_godot_input: return;
-	if __is_input( event, 'ui_accept' ):		press_button();
+	if __is_input( event, 'ui_accept' ):		click_button();
 	if __is_input( event, 'ui_cancel' ):		pass;
 	if __is_input( event, 'ui_up' ):			pass;
 	if __is_input( event, 'ui_down' ):			pass;

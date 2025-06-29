@@ -4,6 +4,25 @@ extends Control
 
 @export var hider_node: Control;
 
+func _ready():
+	## example to create button by script
+	# INFO 1. create and add to scene
+	var node := Editor_UiControlsCombo_Menu_Button.new();
+	add_child( node );
+	# INFO 2. attach neccesary child node
+	var btn := Button.new();
+	btn.text = 'script created button';
+	node.add_child( btn );
+	# INFO 3. assign node
+	node.node_button = btn;
+	# INFO DONE. node already work
+	# recomment to use instantiate PackedScene to skip create something like this every time
+	btn.toggle_mode = true;
+	node.combo_signal_button_pressed.connect( func(): print('you pressed script created button.') );
+	node.combo_signal_button_released.connect( func(): print('you released script created button.') );
+	node.set_anchors_and_offsets_preset(Control.PRESET_CENTER);
+	node.position -= node.size * 0.5;
+
 func _on_men_ucombo_button_3_combo_signal_button_pressed():
 	print( 'Toggle Button Pressed' );
 

@@ -1,5 +1,5 @@
 @tool
-extends 'res://addons/ui_controls_combo/menu_base.gd'
+class_name Editor_UiControlsCombo_Menu_RadioButton extends Editor_UiControlsCombo_Menu
 
 signal combo_signal_radio_changed(idx);
 

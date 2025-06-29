@@ -4,9 +4,10 @@
 
 - Add some preset UI controls combo
 
-### How about Godot 4.4?
+### Any Document for Detail?
 
-- Should be work in 4.4 without conflict, but I will try to add a 4.4 version on release
+- for property and signal -> see description inside editor
+- for method -> [here](DOCUMENT.md) **WIP**
 
 ## Available Controls Combo
 
@@ -26,18 +27,32 @@
 >   - Can swap Left-Right position with one-click *(controled by bool value)*
 >   - Can swap Icon-Name position with one-click *(controled by bool value)*
 
-> ## ![Resource Label](addons/ui_controls_combo/icon/resource_label.png) Resource Label
+> ## ![Resource Label TypeA](addons/ui_controls_combo/icon/resource_label.png) Resource Label TypeA
 >
-> ![Resource Label Preview](addons/ui_controls_combo/preview/resource_label.png)
+> ![Resource Label TypeA Preview](addons/ui_controls_combo/preview/resource_label.png)
 > 
 > - Structure:
->   - **[ VBoxContainer ]** *:*
->   - - **[ HBoxContainer ]** *:* **[ Icon ]**, **[ Name ]**, *[ Space ]*, **[ Current Value ]**, **[ Max Value ]**
->   - - **[ ProgressBar ]**
+>   - **[ BoxContainer ]** *:*
+>     - **[ HBoxContainer ]** *:* **[ Icon ]**, **[ Name ]**, *[ Space ]*, **[ Current Value ]**, **[ Max Value ]**
+>     - *[ Space ]*
+>     - **[ ProgressBar ]**
 > - Feature:
->   - Can swap Up-Down position with one-click *(controled by bool value)*
 >   - Can swap Left-Right position with one-click *(controled by bool value)*
 >   - Can swap Icon-Name position with one-click *(controled by bool value)*
+>   - Can swap Labels-ProgressBar position with one-click *(controled by bool value)*
+>   - Can change ProgressBar position to left/right with one-click *(controled by bool value, set BoxContainer vertical)*
+
+> ## ![Resource Label TypeB](addons/ui_controls_combo/icon/resource_label.png) Resource Label TypeB
+>
+> ![Resource Label TypeB Preview](addons/ui_controls_combo/preview/resource_label_b.png)
+> 
+> - Structure:
+>   - **[ BoxContainer ]** *:* **[ Icon ]**, **[ Name ]**, *[ Space ]*, **[ ProgressBar ]**, **[ Current Value ]**, **[ Max Value ]**
+> - Feature:
+>   - Can swap Left-Right position with one-click *(controled by bool value)*
+>   - Can swap Icon-Name position with one-click *(controled by bool value)*
+>   - Can swap ProgressBar-Value position with one-click *(controled by bool value)*
+>   - Can change whole Node to vertical
 
 ### 2. Menu Combo
 
@@ -115,5 +130,6 @@
 >   - Can set line size, sperate size and draw offset
 >   - Can adjust color
 >   - Can switch to Verticle
+
 
 

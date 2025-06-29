@@ -1,5 +1,5 @@
 @tool
-extends 'res://addons/ui_controls_combo/menu_base.gd'
+class_name Editor_UiControlsCombo_Menu_Switch extends Editor_UiControlsCombo_Menu
 
 signal combo_signal_button_pressed;
 signal combo_signal_button_released;
@@ -60,12 +60,16 @@ func __click_switch():
 	if is_instance_valid( assigned_node[ NODE_IDX.SWITCH ] ):
 		combo_button_pressed = assigned_node[ NODE_IDX.SWITCH ].button_pressed;
 
-func press_switch():
-	if is_instance_valid( assigned_node[ NODE_IDX.SWITCH ] ):
+func __change_button_state( to_state = null ):
+	if !__is_editable(): return;
+	if to_state is bool:
+		combo_button_pressed = to_state;
+	elif is_instance_valid( assigned_node[ NODE_IDX.SWITCH ] ):
 		combo_button_pressed = !assigned_node[ NODE_IDX.SWITCH ].button_pressed;
 
-func press_true_button():	combo_button_pressed = true;
-func press_false_button():	combo_button_pressed = false;
+func press_switch():		__change_button_state();
+func press_true_button():	__change_button_state( true );
+func press_false_button():	__change_button_state( false );
 
 #
 # engine call relate

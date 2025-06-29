@@ -1,10 +1,12 @@
 @tool
-extends 'res://addons/ui_controls_combo/control_base.gd'
+class_name Editor_UiControlsCombo_Menu extends Editor_UiControlsCombo_Base
 
-# NOTE:
-#   for focusing, selecting
-#   do not handle focus move here, only provide method for select and change value
-#   why? because I want to made input can select and change multi node
+# WARNING:
+#   [ Godot 4.3 ]
+#   while copy and paste menu node with signal connected (it occur on non-script connect signal only)
+#   an error 'scene/main/node.cpp:2192 - Parameter "common_parent" is null.' popup
+#   this is an godot error because this occur on other Node, not only menu node
+#   but this error have nothing effect, so ignore it
 
 signal combo_grab_focus;
 signal combo_release_focus;
@@ -39,7 +41,7 @@ signal combo_unselecting;
 			stop_sync = true;
 			is_selecting = new_state;
 			stop_sync = false;
-		if use_godot_input and not Engine.is_editor_hint():
+		if is_inside_tree() and use_godot_input and not Engine.is_editor_hint():
 			if new_state:	grab_focus();
 			else:			release_focus();
 ## selecting is state you CAN change data inside, you can select multi menu combo and change them on same time
@@ -55,16 +57,11 @@ signal combo_unselecting;
 			stop_sync = true;
 			is_focusing = new_state;
 			stop_sync = false;
-## auto sync is_selecting while is_focusing changed, force can_multi_select OFF while sync_focusing ON
+## auto sync is_selecting while is_focusing changed
 @export var sync_focusing := true:
 	set(new_state):
 		sync_focusing = new_state;
-		if sync_focusing:	can_multi_select = false;
-## NOT ALLOW SHIFT mod select multi menu combo while TURNED OFF
-@export var can_multi_select := false:
-	set(new_state):
-		if sync_focusing:	can_multi_select = false;
-		else:				can_multi_select = new_state;
+		if sync_focusing: is_selecting = is_focusing;
 ## use this for stop sync state to protect recursive call of is_focusing and is_selecting
 var stop_sync := false;
 
@@ -94,6 +91,7 @@ var stop_sync := false;
 @export var disabled_time := 0.1;
 
 @export_group('Config')
+@export var grab_focus_on_start := false;
 @export var auto_update_custom_minimum_size := false;
 @export var auto_remove_focus_style := true;
 @export var auto_change_mouse_cursor := true;
@@ -196,7 +194,15 @@ func __create_selection():
 			margin_node.add_child( new_node );
 	__reorder_selection();
 
-func set_node_modulate( node: Control, timer: float, normal_color: Color, target_color: Color, blinking: bool, change_time: float ):
+## apply combo modulate setting to target node
+## also can apply calculated modulate by input setting
+func set_node_modulate( node: Control, timer = null, normal_color = null, target_color = null, blinking = null, change_time = null ):
+	if typeof( timer ) != TYPE_FLOAT:			timer = focus_timer;
+	if typeof( normal_color ) != TYPE_COLOR:	normal_color = normal_modulate;
+	if typeof( target_color ) != TYPE_COLOR:	target_color = __cur_color();
+	if typeof( blinking ) != TYPE_BOOL:			blinking = __cur_blink();
+	if typeof( change_time ) != TYPE_FLOAT:		change_time = __cur_change();
+	
 	var t := 0.0;
 	if blinking:
 		t = 1.0 - abs( ( fmod( timer, change_time * 2.0 ) / change_time ) - 1.0 );
@@ -316,20 +322,34 @@ func __focus_setting_changed():
 		__release_connected_signal( focus_exited );
 		focus_mode = FocusMode.FOCUS_NONE;
 
-func __is_focusable() -> bool:
+func __is_editable() -> bool:
+	return !is_disabled and visible and is_selecting;
+func __check_focusable() -> bool:
 	return is_disabled or !is_focusing;
 func __focus_neighbor_child( direct ):
 	var p = get_parent();
 	var idx := p.get_children().find( $'.' );
 	if idx + direct < 0 or idx + direct >= p.get_child_count():
-		pass # check p have setting
-	var target_node = p.get_child( ( idx + direct + p.get_child_count() ) % p.get_child_count() );
-	change_focus( target_node, Input.is_key_pressed(KEY_SHIFT) );
+		pass # TODO: check p have setting to switch parent
+	var checking_idx;
+	while checking_idx != idx:
+		if checking_idx == null: checking_idx = idx;
+		checking_idx += direct + p.get_child_count();
+		checking_idx %= p.get_child_count();
+		var target_node = p.get_child( checking_idx );
+		if target_node is Editor_UiControlsCombo_Menu:
+			change_focus( target_node, Input.is_key_pressed(KEY_SHIFT) );
+			break;
+
+## change focus to before Editor_UiControlsCombo_Menu under same parent, loop inside parent Node
+## NOTE/TODO: will add option to change focus to other parent
 func focus_back_node():
-	if __is_focusable(): return;
+	if __check_focusable(): return;
 	__focus_neighbor_child( -1 );
+## change focus to next Editor_UiControlsCombo_Menu under same parent, loop inside parent Node
+## NOTE/TODO: will add option to change focus to other parent
 func focus_next_node():
-	if __is_focusable(): return;
+	if __check_focusable(): return;
 	__focus_neighbor_child( 1 );
 
 func __check_any_neighbor_is_selecting() -> bool:
@@ -354,21 +374,32 @@ func __release_all_neighbor_is_selecting():
 		if node != null and node.get('is_selecting') != null and node.is_selecting:
 			node.release_combo_focus();
 
+## change is_focusing to true while NOT disabled
+## while add_selection is true + is_selecting is false,
+## check any neighbor is_selecting equal true than change is_selecting to true
+## skip this check while sync_focusing is true, because is_selecting already sync with is_focusing while this property is true
 func grab_combo_focus( add_selection := false ):
-	if !can_multi_select: add_selection = false; # force turn off while not allow
+	if is_disabled: return;
 	is_focusing = true;
 	if add_selection and !sync_focusing and !is_selecting and __check_any_neighbor_is_selecting():
 		is_selecting = true;
+
+## change is_focusing to false while NOT disabled
+## while add_selection is false + is_selecting is true,
+## change is_selecting to false and release all neighbor is_selecting  
 func release_combo_focus( add_selection := false ):
-	if !can_multi_select: add_selection = false; # force turn off while not allow
+	if is_disabled: return;
 	is_focusing = false;
-	if !add_selection and !sync_focusing and is_selecting:
+	if !add_selection and is_selecting:
 		is_selecting = false;
 		__release_all_neighbor_is_selecting();
+
+## change focus to target node, only work while is_focusing equal true
 func change_focus( target_node, add_selection := false ):
-	if !is_focusing: return;
-	is_focusing = false;
-	target_node.is_focusing = true;
+	if __check_focusable(): return;
+	if target_node is Editor_UiControlsCombo_Menu:
+		is_focusing = false;
+		target_node.is_focusing = true;
 
 #
 # mouse hover / focus
@@ -450,6 +481,7 @@ func _ready():
 	__check_child_mouse_filter();
 	__focus_setting_changed();
 	__change_child_focus( $'.', true );
+	if grab_focus_on_start: grab_combo_focus();
 
 func _process( delta ):
 	if is_disabled or is_focusing or is_selecting:
@@ -473,8 +505,11 @@ func _input(event):
 			if is_selecting:		is_selecting = false;
 			elif is_focusing:		is_focusing = false;
 
-func __is_input( event, action_id: String ) -> bool:
+func __is_input( event, action_id: String, allow_pressing := false ) -> bool:
 	if is_selecting:
 		if event is InputEventKey:
-			return event.is_action_pressed(action_id);
+			if allow_pressing:
+				return event.is_action( action_id, true );
+			else:
+				return event.is_action_pressed(action_id);
 	return false;
