@@ -70,13 +70,13 @@ func _ready():
 #
 
 func __in_vertical_box( node ) -> bool:
-	var in_vertical := false;
-	if (	node.get_parent().is_class('VBoxContainer') or (
+	return (
+		node.get_parent().is_class('VBoxContainer') or (
 			!node.get_parent().is_class('HBoxContainer') and
 			node.get_parent().is_class('BoxContainer') and
-			node.get_parent().vertical ) ):
-		in_vertical = true;
-	return in_vertical;
+			node.get_parent().vertical
+		) 
+	);
 
 func __get_and_apply( target_node: Control, data_name: String, property_name: String ):
 	var temp_data = get( data_name );
@@ -155,8 +155,8 @@ func update_texturerect():
 			if modulate_data is Color: node.modulate = modulate_data;
 			var align_data = get( node_dict[ node_name ].data_name + '_align' );
 			if align_data is SizeFlags:
-				if in_vertical_box:	node.size_flags_vertical = align_data;
-				else:				node.size_flags_horizontal = align_data;
+				if in_vertical_box:	node.size_flags_horizontal = align_data;
+				else:				node.size_flags_vertical = align_data;
 	resized_node();
 
 func __progressbar_use_texture( node_data_ref: Dictionary ) -> bool:
@@ -319,6 +319,8 @@ func __create_node( node_data_ref: Dictionary ) -> Control:
 	if (	new_node.is_class('TextureRect') ):
 		new_node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE;
 		new_node.stretch_mode = TextureRect.STRETCH_SCALE;
+		new_node.size_flags_horizontal = Control.SIZE_SHRINK_CENTER;
+		new_node.size_flags_vertical = Control.SIZE_SHRINK_CENTER;
 	
 	if (	new_node.is_class('MarginContainer') or
 			new_node.is_class('Control') or
@@ -387,7 +389,9 @@ func create_node_index( node_list: Array ):
 	if (	class_include.has( BoxContainer ) or
 			class_include.has( HBoxContainer ) or
 			class_include.has( VBoxContainer ) ): update_container();
-	if class_include.has( Label ): update_label();
+	if class_include.has( Label ):
+		update_label();
+		update_font();
 	if class_include.has( TextureRect ): update_texturerect();
 	if class_include.has( ProgressBar ): update_progressbar();
 	swap_all_align();

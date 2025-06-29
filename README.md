@@ -27,9 +27,9 @@
 >   - Can swap Left-Right position with one-click *(controled by bool value)*
 >   - Can swap Icon-Name position with one-click *(controled by bool value)*
 
-> ## ![Resource Label](addons/ui_controls_combo/icon/resource_label.png) Resource Label
+> ## ![Resource Label TypeA](addons/ui_controls_combo/icon/resource_label.png) Resource Label TypeA
 >
-> ![Resource Label Preview](addons/ui_controls_combo/preview/resource_label.png)
+> ![Resource Label TypeA Preview](addons/ui_controls_combo/preview/resource_label.png)
 > 
 > - Structure:
 >   - **[ BoxContainer ]** *:*
@@ -42,7 +42,7 @@
 >   - Can swap Labels-ProgressBar position with one-click *(controled by bool value)*
 >   - Can change ProgressBar position to left/right with one-click *(controled by bool value, set BoxContainer vertical)*
 
-> ## ![Resource Label TypeB](addons/ui_controls_combo/icon/resource_label_b.png) Resource Label TypeB
+> ## ![Resource Label TypeB](addons/ui_controls_combo/icon/resource_label.png) Resource Label TypeB
 >
 > ![Resource Label TypeB Preview](addons/ui_controls_combo/preview/resource_label_b.png)
 > 
