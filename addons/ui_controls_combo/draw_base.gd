@@ -1,5 +1,5 @@
 @tool
-extends Node2D
+class_name Editor_UiControlsCombo_Draw extends Node2D
 
 func __format_value( input_value, digi_after_decimal := 0, show_rounded_value := false ) -> String:
 	if digi_after_decimal > 0:
@@ -13,7 +13,7 @@ func __format_value( input_value, digi_after_decimal := 0, show_rounded_value :=
 	else:
 		return str( roundi( input_value ) if show_rounded_value else floori( input_value ) );
 
-## NOTE: this func not perfect, I can't figure out how string size work properly
+## NOTE: this func not perfect, I can't figure out how string size add space on top and button
 func __draw_center_text( text: String, font: Font, pos: Vector2, text_size: float, text_modulate: Color ):
 	if text_size <= 0: text_size = 16;
 	

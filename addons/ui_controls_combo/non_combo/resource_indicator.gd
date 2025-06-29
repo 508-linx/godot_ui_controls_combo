@@ -1,5 +1,5 @@
 @tool
-extends 'res://addons/ui_controls_combo/draw_base.gd'
+class_name Editor_UiControlsCombo_ResourceIndicator extends Editor_UiControlsCombo_Draw
 
 enum DRAW_ALIGN { BEGIN, CENTER, END }
 

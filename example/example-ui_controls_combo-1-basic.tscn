@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctqd46jesfcd1"]
+[gd_scene load_steps=7 format=3 uid="uid://ctqd46jesfcd1"]
 
 [ext_resource type="Script" path="res://addons/ui_controls_combo/basic_combo/status_label.gd" id="1_5m7ji"]
 [ext_resource type="Texture2D" uid="uid://cat1xddfoflyo" path="res://icon.svg" id="2_ahl70"]
-[ext_resource type="Script" path="res://addons/ui_controls_combo/basic_combo/resource_label.gd" id="3_tumrs"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/basic_combo/resource_label_a.gd" id="3_nmdu3"]
+[ext_resource type="Script" path="res://addons/ui_controls_combo/basic_combo/resource_label_b.gd" id="4_hfrun"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkifr"]
+bg_color = Color(0.48, 0.31008, 0.3072, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u787p"]
+bg_color = Color(0.879939, 0.389283, 0.395071, 1)
 
 [node name="example-ui_controls_combo-1-basic" type="Control"]
 layout_mode = 3
@@ -13,25 +20,24 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 0
-offset_left = 201.0
-offset_top = 39.0
-offset_right = 241.0
-offset_bottom = 79.0
+layout_mode = 1
+offset_right = 164.0
+offset_bottom = 77.0
 
-[node name="UIcombo_StatusLabel" type="Control" parent="VBoxContainer"]
+[node name="a#UIcombo_StatusLabel" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 script = ExtResource("1_5m7ji")
 icon_txt = ExtResource("2_ahl70")
 icon_size = Vector2(18, 18)
-title = ""
-title_size = 12
+value = "10"
+title_size = 14
 value_size = 12
+value_halign = 2
 value_valign = 1
+sync_label_size = true
 
-[node name="UIcombo_StatusLabel2" type="Control" parent="VBoxContainer"]
+[node name="a#UIcombo_StatusLabel2" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 script = ExtResource("1_5m7ji")
@@ -40,6 +46,7 @@ icon_size = Vector2(18, 18)
 title = ""
 title_size = 12
 value_size = 12
+value_halign = 2
 value_valign = 1
 
 [node name="UIcombo_StatusLabel3" type="Control" parent="VBoxContainer"]
@@ -52,23 +59,6 @@ title = ""
 title_size = 12
 value_size = 12
 value_valign = 1
-
-[node name="UIcombo_ResourceLabel" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 47.0
-offset_top = 154.0
-offset_right = 252.0
-offset_bottom = 177.0
-script = ExtResource("3_tumrs")
-icon_txt = ExtResource("2_ahl70")
-
-[node name="UIcombo_ResourceLabel2" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 67.0
-offset_top = 177.0
-offset_right = 252.0
-offset_bottom = 200.0
-script = ExtResource("3_tumrs")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -143,7 +133,7 @@ theme_override_constants/separation = 20
 alignment = 2
 
 [node name="UIcombo_StatusLabel2" type="Control" parent="VBoxContainer2/HBoxContainer3/HBoxContainer"]
-custom_minimum_size = Vector2(56, 18)
+custom_minimum_size = Vector2(65, 23)
 layout_mode = 2
 script = ExtResource("1_5m7ji")
 icon_txt = ExtResource("2_ahl70")
@@ -156,7 +146,7 @@ value_valign = 1
 auto_update_custom_minimum_size = true
 
 [node name="UIcombo_StatusLabel3" type="Control" parent="VBoxContainer2/HBoxContainer3/HBoxContainer"]
-custom_minimum_size = Vector2(49, 18)
+custom_minimum_size = Vector2(56, 23)
 layout_mode = 2
 script = ExtResource("1_5m7ji")
 icon_txt = ExtResource("2_ahl70")
@@ -169,7 +159,7 @@ value_valign = 1
 auto_update_custom_minimum_size = true
 
 [node name="UIcombo_StatusLabel4" type="Control" parent="VBoxContainer2/HBoxContainer3/HBoxContainer"]
-custom_minimum_size = Vector2(70, 18)
+custom_minimum_size = Vector2(83, 23)
 layout_mode = 2
 script = ExtResource("1_5m7ji")
 icon_txt = ExtResource("2_ahl70")
@@ -179,4 +169,174 @@ value = "1200"
 title_size = 12
 value_size = 12
 value_valign = 1
+auto_update_custom_minimum_size = true
+
+[node name="UIcombo_ResourceLabel" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 72.0
+offset_top = 180.0
+offset_right = 284.0
+offset_bottom = 219.0
+script = ExtResource("3_nmdu3")
+value_cur = "65"
+value_max = "100"
+
+[node name="UIcombo_ResourceLabelB" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 84.0
+offset_top = 285.0
+offset_right = 410.0
+offset_bottom = 308.0
+script = ExtResource("4_hfrun")
+change_value_align = true
+title_surfix = "-"
+value_cur = "50"
+value_max = "100"
+value_bgbox = SubResource("StyleBoxFlat_lkifr")
+value_fillbox = SubResource("StyleBoxFlat_u787p")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -104.0
+offset_right = 300.0
+grow_vertical = 0
+theme_override_constants/separation = 24
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer4/VBoxContainer3"]
+layout_mode = 2
+text = "resource in box w/o sync size"
+
+[node name="UIcombo_ResourceLabel" type="Control" parent="VBoxContainer4/VBoxContainer3"]
+custom_minimum_size = Vector2(300, 23)
+layout_mode = 2
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+value_cur = "65"
+value_max = "100"
+value_barwidth = 80.0
+auto_update_custom_minimum_size = true
+
+[node name="UIcombo_ResourceLabel2" type="Control" parent="VBoxContainer4/VBoxContainer3"]
+custom_minimum_size = Vector2(225, 23)
+layout_mode = 2
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+title = "Name"
+value_cur = "87"
+value_max = "100"
+value_barwidth = 80.0
+auto_update_custom_minimum_size = true
+
+[node name="UIcombo_ResourceLabel3" type="Control" parent="VBoxContainer4/VBoxContainer3"]
+custom_minimum_size = Vector2(243, 23)
+layout_mode = 2
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+title = "Name"
+value_cur = "475"
+value_max = "1000"
+value_barwidth = 80.0
+auto_update_custom_minimum_size = true
+
+[node name="UIcombo_ResourceLabel4" type="Control" parent="VBoxContainer4/VBoxContainer3"]
+custom_minimum_size = Vector2(262, 23)
+layout_mode = 2
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+title = "ResoName"
+value_cur = "65"
+value_max = "100"
+value_barwidth = 80.0
+auto_update_custom_minimum_size = true
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer4/VBoxContainer4"]
+layout_mode = 2
+text = "resource in box w sync size"
+
+[node name="res#UIcombo_ResourceLabel" type="Control" parent="VBoxContainer4/VBoxContainer4"]
+custom_minimum_size = Vector2(267, 23)
+layout_mode = 2
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+title_prefix = "R"
+title = "Name"
+value_cur = "652"
+value_max = "10000"
+value_barwidth = 80.0
+auto_update_custom_minimum_size = true
+
+[node name="status#UIcombo_ResourceLabel2" type="Control" parent="VBoxContainer4/VBoxContainer4"]
+custom_minimum_size = Vector2(310, 23)
+layout_mode = 2
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+title_prefix = "S"
+title = "Name"
+value_cur = "87"
+value_max = "100"
+value_halign = 1
+value_barwidth = 80.0
+sync_label_size = true
+auto_update_custom_minimum_size = true
+
+[node name="res#UIcombo_ResourceLabel3" type="Control" parent="VBoxContainer4/VBoxContainer4"]
+custom_minimum_size = Vector2(304, 23)
+layout_mode = 2
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+title_prefix = "R"
+title = "Name  0"
+value_cur = "475"
+value_max = "10000"
+value_barwidth = 100.0
+auto_update_custom_minimum_size = true
+
+[node name="res#UIcombo_ResourceLabel2" type="Control" parent="VBoxContainer4/VBoxContainer4"]
+custom_minimum_size = Vector2(373, 23)
+layout_mode = 2
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+title_prefix = "R"
+value_cur = "65"
+value_max = "10000"
+value_barwidth = 120.0
+auto_update_custom_minimum_size = true
+
+[node name="status#UIcombo_ResourceLabel4" type="Control" parent="VBoxContainer4/VBoxContainer4"]
+custom_minimum_size = Vector2(350, 23)
+layout_mode = 2
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+title_prefix = "S"
+title = ""
+value_cur = "123897"
+value_max = "2000005"
+value_halign = 1
+value_barwidth = 120.0
+sync_label_size = true
+auto_update_custom_minimum_size = true
+
+[node name="res#UIcombo_ResourceLabel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 459.0
+offset_top = 559.0
+offset_right = 847.0
+offset_bottom = 582.0
+script = ExtResource("3_nmdu3")
+bar_container_vertical = false
+title = "Nothing to sync outside"
+value_cur = "652"
+value_max = "10000"
+value_barwidth = 80.0
+sync_label_size = true
 auto_update_custom_minimum_size = true

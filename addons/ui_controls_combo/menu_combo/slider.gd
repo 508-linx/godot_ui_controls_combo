@@ -1,5 +1,5 @@
 @tool
-extends 'res://addons/ui_controls_combo/menu_base.gd'
+class_name Editor_UiControlsCombo_Menu_Slider extends Editor_UiControlsCombo_Menu
 
 signal combo_signal_value_changed( value: float );
 
@@ -98,8 +98,8 @@ func _input(event):
 	if !use_godot_input: return;
 	if __is_input( event, 'ui_accept' ):		pass;
 	if __is_input( event, 'ui_cancel' ):		pass;
-	if __is_input( event, 'ui_up' ):			__press_up_or_right_key( true );
-	if __is_input( event, 'ui_down' ):			__press_down_or_left_key( true );
-	if __is_input( event, 'ui_left' ):			__press_down_or_left_key();
-	if __is_input( event, 'ui_right' ):			__press_up_or_right_key();
+	if __is_input( event, 'ui_up', true ):		__press_up_or_right_key( true );
+	if __is_input( event, 'ui_down', true ):	__press_down_or_left_key( true );
+	if __is_input( event, 'ui_left', true ):	__press_down_or_left_key();
+	if __is_input( event, 'ui_right', true ):	__press_up_or_right_key();
 	super._input(event);

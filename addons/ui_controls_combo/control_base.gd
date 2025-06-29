@@ -1,5 +1,5 @@
 @tool
-extends Control
+class_name Editor_UiControlsCombo_Base extends Control
 
 #
 # size mattar
@@ -56,3 +56,28 @@ func __release_connected_signal( signal_to_release: Signal ) -> bool:
 			signal_to_release.disconnect( connection.callable );
 			any_released = true;
 	return any_released;
+
+#
+# node creation mattar
+#
+
+# clean auto created child ( start with _ ) while enter tree, solve copy and paste double create node
+func __release_script_created_node( node: Node ):
+	for child_node in node.get_children():
+		__release_script_created_node( child_node );
+		if node.name.left(1) == '_':
+			child_node.queue_free();
+
+var flag_reparent := false;
+func _enter_tree():
+	if flag_reparent:	flag_reparent = false;
+	else:				__release_script_created_node( $'.' );
+	"""
+	for signal_data in get_signal_list():
+		for connection in get_signal_connection_list( signal_data.name ):
+			connection.signal.disconnect( connection.callable );
+			print( connection, connection.signal )
+	"""
+
+func _exit_tree():
+	flag_reparent = true;

@@ -10,8 +10,11 @@ const COMBO_LIST := [
 	[ 'UIcombo_StatusLabel', 'Control',
 			preload( PLUGIN_PATH + 'basic_combo/status_label.gd' ),
 			preload( PLUGIN_PATH + 'icon/status_label.png' ) ],
-	[ 'UIcombo_ResourceLabel', 'Control',
-			preload( PLUGIN_PATH + 'basic_combo/resource_label.gd' ),
+	[ 'UIcombo_ResourceLabel_A', 'Control',
+			preload( PLUGIN_PATH + 'basic_combo/resource_label_a.gd' ),
+			preload( PLUGIN_PATH + 'icon/resource_label.png' ) ],
+	[ 'UIcombo_ResourceLabel_B', 'Control',
+			preload( PLUGIN_PATH + 'basic_combo/resource_label_b.gd' ),
 			preload( PLUGIN_PATH + 'icon/resource_label.png' ) ],
 	
 	# Menu Combo
@@ -43,10 +46,6 @@ const COMBO_LIST := [
 	
 ]
 
-#func _enable_plugin():
-#	add_autoload_singleton( LIB_NAME, PLUGIN_PATH + 'ui_controls_combo_lib.gd' );
-#func _disable_plugin():
-#	remove_autoload_singleton( LIB_NAME );
 func _enter_tree():
 	for item in COMBO_LIST:
 		add_custom_type( item[0], item[1], item[2], item[3] );
